@@ -1,0 +1,440 @@
+*{
+    margin: 0;
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+:root{
+    --bg-color:#2a2a2a;
+    --text-color: #fff;
+    --second-color: #ccc;
+    --main-color: #ff4d05;
+    --big-font:5rem;
+    --h2-font: 3rem;
+    --p-font:1.1rem
+}
+body{
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+header{
+    position: fixed;
+    display: flex;
+    width: 100%;
+    top:0;
+    right:0;
+    z-index:1000;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    padding: 22px 15%;
+    justify-content: space-between;
+    border-bottom:1px solid transparent;
+    transition: all .45s ease;
+}
+.logo{
+    font-size: 35px;
+    color:var(--text-color)
+}
+.navlist{
+    display: flex;
+}
+.navlist a{
+    color: var(--second-color);
+    font-size: 22px;
+    margin: 0 25px;
+    transition: all .45 ease;
+}
+.navlist a:hover{
+    color:var(--main-color);
+    transition: all .45s ease;
+}
+.navlist a.active{
+    color: var(--main-color);
+}
+#menu-icon{
+    font-size: 35px;
+    color:var(--text-color);
+    z-index:1001;
+    cursor: pointer;
+    display:none;
+    margin-left:15px
+}
+.home-text{    
+    transition: all .45 ease;
+    color: var(--text-color);
+    animation: slideRight 1.5s ease-in-out;
+}
+    @keyframes slideRight {
+        0% {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }      
+
+section{
+    padding: 160px 15% 150px;
+}
+.hello{
+    color: var(--main-color);
+    font-size: 3.2rem;
+
+}
+.find{
+    font-size: 1.8rem;
+}
+.home{
+    position: relative;
+    height:100vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-image:url(helpme.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.home-text .hello{
+    font-size: var(--big-font);
+    margin: 0 0 8px;
+    list-style: 1.1;
+    margin: 0 0 8px;
+}
+.home-text .find{
+    font-size: 3rem;
+    line-height: 1.0;
+    margin: 0 0 35px;
+}
+.home-text p{
+    font-size:1.8rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+header.sticky{ 
+    background: var(--bg-color);
+    border-bottom: 1px solid #ffffff1a;
+    padding: 12px 15%;
+}
+.tools{
+    position:relative;
+    height:100%;
+    width: 100%;
+    background: var(--bg-color);
+}
+
+.tools-text .tool{
+    font-size: var(--h2-font);
+    margin-left:1.6% ;
+}
+.tools-text .heady{
+    font-size: 1.8rem;
+    line-height: 3;
+    text-indent: 4.8%;
+} 
+.tools-text .info{
+    text-indent: 5%;
+    margin: 5% 1%;
+    font-size: 1.3rem ; 
+}
+.tools-text .recommend{
+    font-size:var(--h2-font);
+    text-indent: 5%;
+}
+.tools-text .info,.how-text .info, .explain .info{
+    text-indent: 5%;
+}
+.how{
+    position: relative;
+    height:100%;
+    width: 100%;
+    background: var(--bg-color);
+}
+.howto{
+    font-size: var(--h2-font);
+    margin-left: 1.6%;
+}
+.how .heady{
+    font-size: 1.8rem;
+    text-indent: 4.8%;
+    line-height: 3;
+}
+.green{
+    color: chartreuse;
+
+
+}
+.red{
+    color: red;
+}
+.how-text .linenotify{
+    font-size: 1.8rem;
+    line-height: 3;
+}
+.how-text .info {
+    font-size: 1.3rem;
+    text-indent:5%;
+    margin: 5% 1%;
+}
+.how-text img{
+    display: block;
+    margin-left:auto;
+    margin-right: auto;
+    max-width: 800px;
+}
+.link-line{
+    color: var(--main-color);
+}
+
+.esp8266-setup{
+    text-indent: 6%;
+    font-size: 1.3rem;
+}
+.upper{
+    margin-top: 5%;
+}
+.break{
+    margin-top: 5%;
+}
+.top-upper{
+    text-indent: 6%;
+    font-size: 1.3rem;
+}
+.code-box{
+    position: relative;
+    border: 3px solid #3b3a3a;
+    padding: 10px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 800px;
+    border-radius: 25px;
+    background-color: #252222;
+}  
+.copy-btn{
+    height:2rem;
+    width:6rem;
+    font-size:var(--p-font);
+    position: absolute;
+    right:50px;
+    bottom:20px;
+    background-color: var(--bg-color);
+    color:var(--text-color);
+    cursor:pointer;
+    border: 2px var(--text-color) solid;
+    border-radius: 10px;
+}
+.font-color{
+    color: var(--text-color);
+}
+.explain{
+    position:relative;
+    height:100%;
+    width: 100%;
+    background: var(--bg-color);
+}
+.tools-text img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+}
+.explain{
+    position: relative;
+    height:100%;
+    width: 100%;
+    background: var(--bg-color);
+}
+.explain .heady{
+    font-size: 1.8rem;
+    text-indent: 4.8%;
+    line-height: 3;
+}
+.explainto{
+    font-size: var(--h2-font);
+}
+.explain-text .info {
+    font-size: 1.3rem;
+    text-indent:5%;
+    margin: 2% 1%;
+}
+
+
+
+@media (max-width:1480px){
+    header{
+        padding: 12px 2.5%;
+        transition: .1s;
+    }
+    header.sticky{
+        padding:10px 2.5%;
+        transition: .1s;
+    }
+    section{
+        padding: 110px 3%;
+    }
+}
+@media(max-width:1038px){
+    .navlist a{
+       font-size: 20px; 
+    }
+}
+
+@media (max-width:1100px){
+    :root{  
+        --big-font:4rem;
+        --h2-font:2.5rem;
+        --p-font:1rem;
+        transition: .1s;
+    }
+    .home-text .find {
+        font-size: 2.5rem;
+    }
+    .home-text p{
+        font-size:1.4rem ;
+    }
+    .tools-text img,.how-text img{
+        max-width: 600px;
+    }
+    .code-box{
+        max-width: 600px;
+    }
+}
+@media (max-width:920px){
+    header .logo{
+        font-size: 35px;
+        padding: 5px 2.5%;
+    }
+    .navlist a{
+        color: var(--second-color);
+        font-size: 20px;
+        margin: 0 10px;
+        transition: all 0.45 ease;
+    }
+
+}
+@media(max-width:840px){
+    #menu-icon{
+        display: block;
+        font-size: 65px;
+    }
+    header .logo{
+        font-size: 50px;
+    }
+    .navlist{
+        position:absolute;
+        top: -1000px;;
+        right:0;
+        left:0;
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-color);
+        text-align: left;
+        transition: all .45s ease;
+    }
+    .navlist a{
+        display: block;
+        margin: 17px;
+        font-size: 20px;
+        transition: all .45s ease;
+        color: var(--text-color);
+    }
+    .navlist a:hover{
+        color: var(--main-color);
+    }
+    .navlist a.active{
+        color: var(--text-color);
+    }
+    .navlist.open{
+        top: 100%;
+    }
+    .tools-text img,.how-text img{
+        max-width: 500px;
+    }
+    .code-box{
+        max-width: 500px;
+    }
+}
+
+@media (max-width:660px){
+    .tools-text img,.how-text img{
+        max-width: 400px;
+    }
+    header .logo{
+        font-size: 30px;
+    }
+    .tools-text .heady, .how-text .heady, .explain-text .heady{
+        font-size: 1.6rem;
+    }
+    .tools-text .info,.how-text .info,.how-text .top-upper,.explain-text .info{
+        font-size: 1.2rem;
+    }
+    .code-box{
+        max-width: 400px;
+    }
+@media (max-width:480px){
+    .tools-text img,.how-text img{
+        max-width: 350px;
+    }
+    .code-box{
+        max-width: 350px;
+        font-size: 0.8rem;
+    }
+    .tools-text .info,.how-text .info ,.how-text .top-upper,.explain-text .info{
+        font-size: 1rem ;
+    }
+    .tools-text .heady, .how-text .heady, .explain-text .heady{
+        font-size: 1.4rem;
+    }
+}
+}
+@media (max-width:420px){
+    .tools-text img,.how-text img{
+        max-width: 300px;
+    } 
+    .tools-text .heady{
+        font-size: 1.2rem;
+        }
+    .code-box{
+        max-width: 300px;
+    }
+    .tool,.howto,.explainto{
+        font-size: 2rem;
+    }
+}
+@media(max-width:400px){
+    header .logo{
+        font-size: 25px;  
+    }
+    .home .home-text .hello{
+        font-size: 4rem;
+    }
+    .home .home-text .find {
+        font-size: 1.3rem;
+    }
+    .home .home-text p{
+        font-size: 1rem;
+    }
+    .home .home-text .hate{
+        display: none;
+    }
+}
+@media(max-width:340px){
+    header .logo{
+        font-size: 20px;
+    }
+    .tools-text img,.how-text img{
+        max-width: 250px;
+    }
+    .code-box{
+        max-width: 250px;
+    }
+}

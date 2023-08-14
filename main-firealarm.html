@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="home-firealarm.css" rel="stylesheet" type="text/css">
+    <link href="responsive-firealarm.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@600&family=IBM+Plex+Sans+Thai:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <title>โปรเจคเครื่องตรวจจับควันไฟ</title>
+</head>
+<body>
+    <!--เเถบเมนู-->
+    <header>
+        <a href="#" class="logo">เครื่องตรวจจับควันไฟ</a>
+            <ul class="navlist">
+                <li><a href="#home" class="active">หน้าหลัก</a></li>
+                <li><a href="#tools">อุปกรณ์ที่ใช้</a></li>
+                <li><a href="#how">ขั้นตอนการทำ</a></li>
+                <li><a href="#explain">อธิบายการทำงาน</a></li>
+            </ul>
+            <div class="bx bx-menu" id="menu-icon"></div>
+
+        </header>
+    <!--หน้าหลัก-->    
+    <section class="home" id="home">
+        <div class="home-text">
+                <div class="hello">สวัสดี!</div>
+                <div class="find">กำลังหามินิโปรเจค IOT ทำอยู่สินะ</div>
+                <br class="hate">
+                <p>เราขอเสนอมินิโปรเจคเครื่องตรวจจับควันไฟเเจ้งเตือนผ่าน <span class="green">Line notify</span> 
+                    <br>-เป็นโปรเจคที่ทำได้<span class="green">ง่าย</span>เเละ<span class="green">ใช้งบไม่เยอะ</span>
+                <br>-สำหรับใครที่สนใจเรามีขั้นตอนวิธีการทำให้ศึกษากัน<span class="green">ฟรี</span>ด้วยนะ!</p> 
+      
+        </div>
+    </section>
+    <!--อุปกรณ์ที่ใช้-->
+    <section class="tools" id="tools">
+    
+        <div class="tools-text">
+            <div class="tool">อุปกรณ์ที่ใช้</div>
+            <div class="nodemcu heady">1. Node MCU V3 ESP8266</div>
+        <div class="esp8266 text-animation">
+            <img src="ESP8266.jpg">
+        </div>
+        <div class="esp8266-info info">ESP8266 เวอร์ชั่นนี้เป็น NodeMCU V3 เป็นบอร์ดควบคุมสำหรับใช้แทน arduino สามารถสื่อสารไร้สายแบบ WiFi 2.4GHz 
+            ทำให้สามารถส่งข้อมูลเซนเซอร์หรือสั่งการควบคุมผ่านอินเตอร์เน็ตได้ในตัวเดียว 
+            โดยพอร์ตการสื่อสารเพื่ออัพโหลดโปรแกรมก็ใช้ microUSB
+            <br>
+            <div>
+            ESP8266 NodeMCU V3 ใช้ชิพ ESP-12F สามารถเขียนโปรแกรมโดยใช้ ภาษา c++ บน Arduino IDE ได้เลย หรือใช้ภาษา Lau ซึ่งต้องลง 
+            Firmware NodeMCU ก่อน ใช้ Chip CH340 เป็น USB to Serial ทำให้ใช้งานได้บน Windows 10 ได้อย่างราบรื่น
+            </div>
+        </div>
+        <div class="mq-2 heady">2. MQ-2 Sensor</div>
+        <div class="MQ-2-img">
+            <img src="MQ-2.jpg">
+        </div>
+        <div class="mq-2-info info">Module sensor MQ-2 เป็นเซนเซอร์ที่ใช้ในการตรวจจับปริมาณแก๊สแอลพีจีและควันที่เกิดจากการเผาสิ่งต่างๆ 
+            เช่น เผาขยะ เผาเศษไม้ เป็นต้น โดยใช้หลักการเปลี่ยนแปลงความต้านทานเมื่อมีการดูดซับแก๊สแอลพีจีและควันเข้าไป 
+            เซนเซอร์ประกอบไปด้วยหลอดเซรามิก Al2O3 (Aluminium oxide) ขนาดเล็ก, ชั้นตรวจจับ SnO2 (Tin oxide),
+             และขดลวดทำความร้อนโดยส่งค่ากลับมาเป็น Analog กับ Digital  สามารถปรับความไวได้</div>
+        <div class="lcd heady">3. จอ LCD 16x2 (I2c with backlight)</div>
+        <div class="lcd-img">
+            <img src="LCD.jpg">
+        </div>
+        <div class="lcd-info info">
+            เป็นจอที่ทำมาจากผลึกคริสตัลเหลว หลักการคือด้านหลังจอจะมีไฟส่องสว่าง 
+            หรือที่เรียกว่า Backlight อยู่ เมื่อมีการปล่อยกระแสไฟฟ้าเข้าไปกระตุ้นที่ผลึก ก็จะทำให้ผลึกโปร่งแสง 
+            ทำให้แสงที่มาจากไฟ Backlight แสดงขึ้นมาบนหน้าจอ ส่วนอื่นที่โดนผลึกปิดกั้นไว้จะมีสีที่แตกต่างกันตามสีของผลึกคริสตัล 
+            เช่น สีเขียว หรือ สีฟ้า ทำให้เมื่อมองไปที่จอก็จะพบกับตัวหนังสือสีขาวแล้วพบกับพื้นหลังสีต่างๆกัน
+        </div>
+        <div class="buzzer heady">4. Buzzer (Buzzer Active Speaker 5V 85DB)</div>
+        <div class="buzzer-img">
+            <img src="BUZZER.jpg">
+        </div>
+        <div class="buzzer-info info">
+            เป็นลำโพงแบบแม่เหล็กหรือแบบเปียโซที่มีวงจรกำเนิดความถี่ (oscillator ) อยู่ภายในตัว ใช้ไฟเลี้ยง 3.3 - 5V 
+            สามารถสร้างเสียงเตือนหรือส่งสัญญาณที่เป็นรูปแบบต่างๆ
+        </div>
+        <div class="jumper-wire heady">5. สายจั๊มเปอร์ (ตัวเมีย-ตัวเมีย)</div>
+        <div class="jumper-img">
+            <img src="JUMPER.jpg">
+        </div>
+        <div class="jumper-info info">เป็นสายไฟที่มีหัวเสียบกับเข้ากับบอร์ดทดลอง บอร์ด Arduino Nodemcu 
+            ใช้สำหรับเสียบหรือต่อวงจรเชื่อมต่อวงจร ให้วงจรเชื่อมต่อเข้าหากัน เพื่อนำสัญญาณ หรือแรงดันป้อนไปยังบอร์ด
+        </div>
+        <div class="case heady">6. เคสใส่วงจร</div>
+        <div class="case-img">
+            <img src="CASE.jpg">
+        </div>
+        <div class="case-info info">
+            ใช้ใส่วงจรที่ต่อลงไป เเนะนำให้ใช้วัสดุที่มีลักษณะเป็นกล่องเพื่อง่ายต่อการจัดเก็บหรืออาจจะหาวัสดุอย่างอื่นเพื่อ
+            นำมาประกอบเป็นเคสเองได้ตามความสะดวก
+        </div>
+
+        </div>
+    </section>
+    <!--ขั้นตอนการทำ-->
+    <section class="how" id="how">
+        <div class="how-text">
+            <div class="howto">ขั้นตอนการทำ</div>
+            <div class="setup heady">1. Set up สิ่งที่ต้องใช้</div>
+            <div class="linenotify heady">1.1 สร้าง <span class="green">LINE TOKEN</span></div>
+            <div class="line-img">
+                <img src="linetutorial2.jpg">
+            </div>
+            <div class="linenotify-info info">เข้าไปยังเว็บไซต์ <span class="green">Line Notify </span>
+                เพื่อสร้าง LINE TOKEN เเละเลือกเเชทที่ต้องการ
+                ให้ LINE NOTIFY เข้าถึง เมื่อทำการกดสร้าง LINE TOKEN เสร็จเเล้วให้คัดลอกเก็บเอาไว้
+                <a href="https://notify-bot.line.me/th/" class="link-line">กดที่นี่เพื่อไปยังเว็บไซต์</a>
+            </div>
+            <div class="wiresetup heady">1.2 ต่อวงจร</div>
+            <div class="line-img">
+                <img src="sketch.png">
+            </div>
+            <div class="wiresetup-info info">ต่อวงจรโดยนำสาย Jumper เสียบเข้าที่ขาของอุปกรณ์เเต่ละชิ้นตามรูป <br><br>
+            <span class="red">
+            * หมายเหตุ การใช้ MQ-9 ในรูปวงจรเเทน MQ-2 เนื่องจากในโปรเเกรมจำลองการต่อวงจรไม่มีโมเดล MQ-2 ให้ ใช้จึงใช้ MQ-9 เเทนซึ่งมีลักษณะการต่อที่เหมือนกัน
+            <br>* หมายเหตุ จอ LCD I2C ในรูปวงจรมีสีฟ้าเนื่องจากในโปรเเกรมจำลองการต่อวงจรไม่มีโมเดล จอ LCD I2C สีเขียวให้ ใช้จึงใช้ จอ LCD I2C สีฟ้าเเทนซึ่งมีลักษณะการต่อที่เหมือนกัน
+            <br>* กรณีที่ซื้อจอมาเเล้วต่อวงจรเเล้วไม่เเสดงภาพให้พลิกไปด้านหลังจอจะมีตัวปรับให้หมุนอยู่ให้เอาไขควงหรือปลายไม้บรรทัดเสียบเเล้วหมุนจนกว่าจอจะเเสดงผล
+            </span>
+            </div>    
+            <div class="library heady">1.3 ติดตั้งโปรเเกรม Arduino IDE</div>
+            <div class="arduino-1-img">
+                <img src="arduinofirst.png">
+            </div>
+            <div class="arduino-1-info info">เข้าเว็บไซต์หลักของ Arduino เพื่อติดตั้ง Arduino IDE <a href="https://www.arduino.cc/en/software" class="link-line">กดที่นี่เพื่อไปยังเว็บไซต์</a></div>
+            <div class="arduino-2-img">
+                <img src="arduinosecond.png">
+            </div>
+            <div class="arduino-2-info info">เมื่อเลือกเวอร์ชั่นที่ต้องการโหลดได้เเล้วให้กด JUST DOWNLOAD เพื่อโหลดโปรเเกรมฟรี 
+            <span class="green"> ( เวอร์ชั่นที่ทางเราใช้จะเป็นเวอร์ชั่น 1.8.19 )</span>
+            </div>
+            <div class="esp8266-set heady">1.4 Setup ESP8266</div>
+            <div class="esp8266-setup info">1.4.1 เปิดโปรเเกรม Arduino IDE ไปที่ File > Preferences</div>
+            <div class="1-file-preference-img upper">
+                <img src="1-file-preference.png">
+            </div>
+            <div class="esp8266-setup info">1.4.2 คัดลอกลิงก์ <span class="green ">http://arduino.esp8266.com/stable
+                /package_esp8266com_index.json</span> วางแล้วกด OK</div>
+            <div class="2-esp8266-link-img">
+                <img src="2-esp-link.png">
+            </div>
+            <div class="esp8266-setup info">1.4.3 ไปที่ Tools > Board > Boards Manager</div>
+            <div class="3-tools-manager-img">
+                <img src="3-tools-manager.png">
+            </div>
+            <div class="esp8266-setup info">1.4.4 ค้นหา ESP8266 เเละกด Install</div>
+            <div class="4-esp8266-install-img"> 
+                <img src="4-esp8266-install.png">
+            </div>
+            <div class="esp8266-setup info">1.4.5 เมื่อเข้าไปเช็คดูตรง Board Manager จะพบว่ามีบอร์ด ESP8266 ให้เลือก NodeMCU 1.0 (ESP-12E Module)</div>
+            <div class="5-esp8266-check">
+                <img src="5-esp8266-check.png">
+            </div>
+            <div class="esp8266-setup info">1.4.6 หากต้องการทดสอบว่าบอร์ดที่ซื้อมาใช้ได้หรือไม่ ให้ไปที่ File > Examples > 01.Basics > Blink</div>
+            <div class="6-blink-test-img">
+                <img src="6-blink-test.png">
+            </div>
+            <div class="esp8266-setup info">1.4.7 ให้ต่อสาย microUSB เข้าบอร์ดเเละคอมพิวเตอร์ให้เรียบร้อย จากนั้นกดปุ่ม Upload ก่อนอัพโหลดให้ไปดู
+                Port ว่าใช้ถูกช่องไหม (รูปตัวอย่างจะใช้ช่อง COM3) </div>
+            <div class="7-com3-img">
+                <img src="7-com3.png">
+            </div>
+            <div class="7-upload-blink-img break">
+                <img src="7-upload-blink.png">
+            </div>
+            <div class="esp8266-info info">ถ้าหากบอร์ดทำงานปกติให้สังเกตุไฟที่บอร์ดจะกระพริบเรื่อยๆดังรูปตัวอย่าง</div>
+            <div class="7-success-img break">
+                <img src="7-success.jpg">
+            </div>
+            <div class="library-set heady">1.5 ติดตั้ง Library ที่จำเป็นต้องใช้</div>
+            <div class="library-info top-upper">Library หลักๆที่จะใช้มีอยู่ 2 ตัว คือ <span class="green"> TridentTD LineNotify </span> เเละ 
+                <span class="red">Liquid Crystal I2C </span>  โดย <span class="green">TridentTD LineNotify</span>
+                จะเป็นไลบรารี่เกี่ยวกับการเเจ้งเตือนผ่าน <span class="green">Line Notify</span> เเละ <span class="red">Liquid Crystal I2C</span> 
+                เป็นไลบรารี่เกี่ยวกับการเเสดงผล
+                ทางหน้าจอของจอ LCD I2C
+            </div>
+            <div class="library-install-info top-upper"><a href="https://downloads.arduino.cc/libraries/github.com/TridentTD/TridentTD_Linenotify-3.0.6.zip"
+                class="green">- กดตรงนี้เพื่อดาวน์โหลดไลบรารี่ TridentTD_Linenotify</a></div>
+            <div class="library-install-info top-upper"><a href="https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library/archive/refs/heads/master.zip"
+                class="red">- กดตรงนี้เพื่อดาวน์โหลดไลบรารี่ LCD I2C</a></div>
+            <div class="library-install-info heady">วิธีติดตั้ง Library</div>
+            <div class="library-install-info-first top-upper">หลังจากดาวน์โหลด Library เสร็จเเล้วให้คัดลอกโฟลเดอร์
+                ไปวางในโฟลเดอร์ libraries ของโปรเเกรม Arduino
+            </div>
+            <div class="1-library break">
+                <img src="library install first.png">
+            </div>
+            <div class="2-library break">
+                <img src="library install second.png">
+            </div>
+            <div class="3-library break">
+                <img src="library install third.png">
+            </div>
+            <div class="4-library break">
+                <img src="library install forth.png">
+            </div>
+            <div class="coding heady">2. เขียนโปรเเกรม</div>
+            <div class="coding-info top-upper">เขียนโปรเเกรมตามตัวอย่างด้านล่างนี้ได้เลย</div>
+            <br>
+            <div class="code-box">
+<code class="font-color" id="text-to-copy">            #include &ltLiquidCrystal_I2C.h&gt //เรียกใช้ไลบรารี่ LiquidCrystal_I2C              
+            #include &ltTridentTD_LineNotify.h&gt //เรียกใช้ไลบรารี่ line notify
+            #define SSID        "........"      //ใส่ ชื่อ Wifi ที่จะเชื่อมต่อ
+            #define PASSWORD    "........"     //ใส่ รหัส Wifi
+            #define LINE_TOKEN  "........"   //ใส่ Line Token
+            #define BUZZER_PIN D3  //กำหนดให้ขา D3 เชื่อมต่อกับ BUZZER
+            LiquidCrystal_I2C lcd(0x27, 16, 2); 
+            int limit_notification = 0; //กำหนดจำนวนครั้งในการส่งข้อความ = 0
+            void setup() {
+                lcd.begin(); 
+                Serial.begin(115200);
+                WiFi.begin(SSID, PASSWORD);
+                Serial.printf("WiFi connecting to %s\n",  SSID);
+                while (WiFi.status() != WL_CONNECTED) {
+                    lcd.setCursor(0, 0);
+                    lcd.print("Wifi Connecting");
+                    delay(1000);
+                    lcd.clear(); //เคลียร์หน้าจอ
+                    Serial.print(".");
+                }
+                Serial.printf("\nWiFi connected\nIP : ");
+                Serial.println(WiFi.localIP());
+                LINE.setToken(LINE_TOKEN);
+                pinMode(BUZZER_PIN, OUTPUT); 
+            }                   
+            void loop() {
+                int GAS =  analogRead(A0);
+                lcd.clear(); 
+                lcd.backlight(); 
+                lcd.setCursor(1, 0);
+                lcd.print("Wifi Connected");
+                lcd.setCursor(3, 1);
+                lcd.print("GAS = "+String(GAS)); //พิมพ์ข้อความ "GAS = (ค่าเเก๊สที่ตรวจจับได้)"
+                if(GAS>400&&limit_notification==0){
+                    LINE.notify("อันตรายไฟไหม้ ค่าเเก๊สที่ตรวจพบ ="+String(GAS));
+                    limit_notification=1;
+                }
+                if(GAS>400){
+                    digitalWrite(BUZZER_PIN, HIGH);
+                    delay(1500);
+                    digitalWrite(BUZZER_PIN, LOW);
+                    delay(1000); 
+                }
+                if(GAS&lt200&&limit_notification==1){
+                    LINE.notify("ปลอดภัยเเล้ว ค่าเเก๊สที่ตรวจพบ ="+String(GAS));
+                    limit_notification=0;
+                }
+                delay(1000);  
+            }
+                </code>
+                <button id="copy-button" onclick="copyText()" class="copy-btn">Copy</button>
+            </div>
+            <div class="explained info">เมื่อเขียนโปรเเกรมตามข้างต้นเสร็จเเล้วให้ต่อสาย microUSB เเล้วอัพโหลดโค้ดเพื่อทดสอบการทำงานของโปรเเกรม
+                ( หากโปรเเกรมทำงานปกติเมื่อไม่มีควันลำโพงจะไม่ส่งเสียงดังเเละไม่ส่งการเเจ้งเตือนไปยังไลน์เเละจอ LCD จะเเสดงค่าเเก๊สที่ตรวจพบ )
+            </div>
+            <div class="explain-img break">
+                <img src="box-texting.jpg">
+            </div>
+            <div class="get-in-box heady">3. นำอุปกรณ์บรรจุลงในกล่อง</div>
+            <div class="get-in-box-info top-upper">เมื่อทดสอบเเล้ว
+                โปรเเกรมทำงานปกติดังรูปตัวอย่างก็สามารถบรรจุลงกล่องได้เลย ตัวกล่องสามารถดีไซน์ตามเเบบที่ต้องการได้หรืออาจจะนำเอา
+            ของเหลือใช้มาทำก็ได้ขอเพียงเเค่ใช้งานได้ปกติ</div>
+            <div class="get-in-box-example break">
+                <img src="box-finish.jpg">
+            </div>
+        </div>
+    </section>
+    <!--อธิบายการทำงาน-->
+    <section class="explain" id="explain">
+        <div class="explain-text">
+            <div class="explainto">
+                อธิบายการทำงาน
+            </div>
+            <div class="explaining-info info">
+                เมื่อต่อวงจรครบตามผังวงจรเเละทำการอัพโหลดโค้ดลงบนบอร์ด ESP8266 พร้อมเชื่อมต่อ WiFi กับบอร์ดเเล้ว จอ LCD จะเเสดงค่าเเก๊สที่จับได้
+                ตลอดเวลา เมื่อ MQ-2 (เซนเซอร์ตรวจจับเเก๊ส) มีการดูดซับแก๊สหรือควันเข้าไป ตัวเซนเซอร์จะทำการเปลี่ยนเเปลงค่าความต้านทานเนื่องจาก 
+                เซนเซอร์ประกอบไปด้วยหลอดเซรามิก Al2O3 (Aluminium oxide) ขนาดเล็ก, ชั้นตรวจจับ SnO2 (Tin oxide),
+                และขดลวดทำความร้อน เมื่อมีควันหรือเเก๊สเข้าไปในเซนเซอร์ตรวจจับควันไฟส่วนประกอบข้างในเซนเซอร์จะทำปฏิกิริยากับเเก๊สเหล่านั้น โดยเมื่อทำ
+                ปฏิกิริยาเสร็จตัวเซนเซอร์ก็จะส่งค่ากลับมาเป็น Analog กับ Digital โดยทั่วไปค่าที่ส่งกลับมาจะมีหน่วยเป็น Milivolt เเละค่า Milivolt ที่
+                มีเกณฑ์เข้าข่ายว่าตรวจพบควันไฟหรือเเก๊สจะอยู่ในช่วง 300-500 Milivolt ขึ้นไป โดยถ้าหากเครื่องตรวจจับควันไฟตรวจพบควันไฟหรือเเก๊สที่ตรวจพบได้ ตัวบอร์ด 
+                ESP-8266 จะส่งข้อความไปยัง Line Notify 
+                พร้อมกับจ่ายกระเเสไฟไปยัง Buzzer ทำให้ลำโพงเกิดเสียงดังขึ้นมาเพื่อทำการเเจ้งเตือนเเละเมื่อระดับควันไฟหรือเเก๊สลดระดับลง
+                ถึงเกณฑ์ที่กำหนด ESP-8266 ก็จะส่งการเเจ้งเตือนไปว่าระดับควันไฟลดลงเเล้วพร้อมกับหยุดจ่ายไฟให้ Buzzer นั่นเอง
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </section>
+
+<script type="text/javascript" src="main-firealarm.js"  ></script>
+
+</body>
+</html>
